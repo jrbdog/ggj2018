@@ -1,0 +1,6 @@
+D:\GitBitch\ggj2018\c#\ggj2018\ggj2018\bin\Debug\ggj2018.exe.config
+D:\GitBitch\ggj2018\c#\ggj2018\ggj2018\bin\Debug\ggj2018.exe
+D:\GitBitch\ggj2018\c#\ggj2018\ggj2018\bin\Debug\ggj2018.pdb
+D:\GitBitch\ggj2018\c#\ggj2018\ggj2018\obj\Debug\ggj2018.csprojResolveAssemblyReference.cache
+D:\GitBitch\ggj2018\c#\ggj2018\ggj2018\obj\Debug\ggj2018.exe
+D:\GitBitch\ggj2018\c#\ggj2018\ggj2018\obj\Debug\ggj2018.pdb
