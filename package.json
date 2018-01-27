@@ -1,0 +1,22 @@
+{
+  "name": "ggj2018",
+  "version": "1.0.0",
+  "description": "Global Game Jam 2018",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrbdog/ggj2018.git"
+  },
+  "author": "",
+  "license": "CC-BY-NC-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/jrbdog/ggj2018/issues"
+  },
+  "homepage": "https://github.com/jrbdog/ggj2018#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.7"
+  }
+}
