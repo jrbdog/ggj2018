@@ -3,11 +3,7 @@ const chalk = require('chalk');
 const readlineSync = require('readline-sync');
 const fs = require("fs");
 
-const morse = require("morse");
-const MonoAlphabeticCipher = require('text-ciphers').MonoAlphabeticCipher;
-const monoalphabeticCipher = new MonoAlphabeticCipher({
-    substitution: MonoAlphabeticCipher.createKeyByShift(-5)
-});
+const encryption = require('./encryption')
 
 const utility = require('./utility')
 
@@ -24,7 +20,7 @@ console.log("Loaded "+ words.length + " words");
 
 var randomWord = words[utility.getRandomInt(0, words.length)];
 // console.log("debug: word is [" + randomWord + "]");
-encodedMsg = monoalphabeticCipher.encipher(randomWord);
+encodedMsg = encryption.randomEncryption(randomWord);
 //encodedMsg = morse.encode(randomWord);
 
 console.log(chalk.cyan("===INCOMING TRANSMISSION==="));
