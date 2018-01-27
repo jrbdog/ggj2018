@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/jrbdog/ggj2018#readme",
   "dependencies": {
-    "readline-sync": "^1.4.7"
+    "chalk": "^2.3.0",
+    "clui": "^0.3.6",
+    "morse": "^0.1.0",
+    "readline-sync": "^1.4.7",
+    "text-ciphers": "^0.5.2"
   }
 }
