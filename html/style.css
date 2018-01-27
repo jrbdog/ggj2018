@@ -8,10 +8,14 @@ div#mainbody{
     border-top: none;
     height: 100%;
 }
-img#titlebar{
-    margin: 0;
-    width: 100%;
-    background-image: url('images/shovel.png');
+
+#titlebar{
+    background-color: white;
+}
+@media (max-width: 375px){
+    #titlebar{
+        width = 375px;
+    }
 }
 h1{
     color: darkgray;
