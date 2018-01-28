@@ -13,7 +13,7 @@ const monoalphabeticCipher2 = new MonoAlphabeticCipher({
 
 const utility = require("./utility")
 
-const numberOfEncryptionMethods = 2;
+const numberOfEncryptionMethods = 3;
 
 const letterToNumberRed = {
     "a": 1,
@@ -132,11 +132,11 @@ exports.randomEncryption = function(messageToEncode) {
             break;
     
         case 3:
-            encodedMessage = morse.encode(messageToEncode);
+            encodedMessage = chalk.blue(morse.encode(messageToEncode));
             break;
 
         case 4:
-            encodedMessage = chalk.blue(monoalphabeticCipher1.encipher(messageToEncode));
+            // TBD
             break;
 
         default:
