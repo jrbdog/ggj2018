@@ -104,3 +104,9 @@ p.oldGreen{
 p.cyan{
     color: #00FFFF
 }
+
+restartBtn{
+    background: none;
+    border: 2px double #00FFFF;
+    color: #c0c0c0;
+}
