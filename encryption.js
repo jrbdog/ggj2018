@@ -13,7 +13,7 @@ const monoalphabeticCipher2 = new MonoAlphabeticCipher({
 
 const utility = require("./utility")
 
-const numberOfEncryptionMethods = 1;
+const numberOfEncryptionMethods = 2;
 
 const letterToNumberRed = {
     "a": 1,
@@ -46,12 +46,13 @@ const letterToNumberRed = {
 
 exports.randomEncryption = function(messageToEncode) {
     let encNum = utility.getRandomInt(1, numberOfEncryptionMethods + 1);
+    //let encNum = 2 // FOR TESTING
     console.log("debug: random encryption = "+encNum)
     // console.log(messageToEncode);
     let encodedMessage = '';
+    let msg = messageToEncode;
     switch (encNum) {
         case 1:
-            let msg = messageToEncode;
             Object.keys(letterToNumberRed).forEach(function(key) {
                 let value = letterToNumberRed[key];
                 msg = msg.replace(new RegExp(key, 'g'), value + " ");
@@ -102,7 +103,32 @@ exports.randomEncryption = function(messageToEncode) {
             break;
 
         case 2:
-            encodedMessage = chalk.yellow(monoalphabeticCipher2.encipher(messageToEncode));
+            let alphabet = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' ];
+            // chance of repeating letters
+            if (Math.floor(Math.random()*2) == 1) {
+                let newMsgArray = [];
+                let randomLetter = alphabet[utility.getRandomInt(0, 26)];
+                console.log("debug: random letter: " + randomLetter);
+                origMsgArray = msg.split("");
+                console.log(origMsgArray);
+                origMsgArray.forEach(function(letter) {
+                    newMsgArray.push(letter);
+                    newMsgArray.push(randomLetter);
+                }, this);
+                msg = newMsgArray.join("");
+            }
+            else {
+                // backwards or key
+                if (Math.floor(Math.random()*2) == 1) {
+                    msg = msg.split("").reverse().join("");
+                } else {
+                    console.log("debug: usind shift-5 key");
+                    msg = monoalphabeticCipher1.encipher(msg);
+                }
+
+            }
+            
+            encodedMessage = chalk.green(msg);
             break;
     
         case 3:
