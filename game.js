@@ -15,7 +15,7 @@ const utility = require('./utility')
 var words = fs.readFileSync('words_alpha.txt').toString().split("\n");
 console.log("Loaded "+ words.length + " words");
 
-if ((Math.random * 100) > 25) {
+if ((Math.random() * 100) > 25) {
     var randomWord = words[utility.getRandomInt(0, words.length)];
     // console.log("debug: word is [" + randomWord + "]");
     encodedMsg = encryption.randomEncryption(randomWord);
