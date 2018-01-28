@@ -7,10 +7,6 @@ const monoalphabeticCipher1 = new MonoAlphabeticCipher({
     substitution: MonoAlphabeticCipher.createKeyByShift(-5)
 });
 
-const monoalphabeticCipher2 = new MonoAlphabeticCipher({
-    substitution: MonoAlphabeticCipher.createKeyByShift(-3)
-});
-
 const utility = require("./utility")
 
 const numberOfEncryptionMethods = 3;
@@ -47,7 +43,7 @@ const letterToNumberRed = {
 exports.randomEncryption = function(messageToEncode) {
     let encNum = utility.getRandomInt(1, numberOfEncryptionMethods + 1);
     //let encNum = 2 // FOR TESTING
-    console.log("debug: random encryption = "+encNum)
+    //console.log("debug: random encryption = "+encNum)
     // console.log(messageToEncode);
     let encodedMessage = '';
     let msg = messageToEncode;
@@ -66,7 +62,7 @@ exports.randomEncryption = function(messageToEncode) {
             }, this);
 
             if (allEven) {
-                console.log('debug: multiplying all by 2');
+                //console.log('debug: multiplying all by 2');
 
                 let origNumArray = msg.split(" ");
                 let newNumArray = [];
@@ -83,7 +79,7 @@ exports.randomEncryption = function(messageToEncode) {
 
             // chance of appending random repeating number
             if (Math.floor(Math.random()*2) == 1) {
-                console.log('debug: inserting repeating number')
+                //console.log('debug: inserting repeating number')
                 let repeatingNum = utility.getRandomInt(1, 10);
                 let origNumArray = msg.split(" ");
                 // console.log(origNumArray);
@@ -108,7 +104,7 @@ exports.randomEncryption = function(messageToEncode) {
             if (Math.floor(Math.random()*2) == 1) {
                 let newMsgArray = [];
                 let randomLetter = alphabet[utility.getRandomInt(0, 26)];
-                console.log("debug: random letter: " + randomLetter);
+                //console.log("debug: random letter: " + randomLetter);
                 origMsgArray = msg.split("");
                 console.log(origMsgArray);
                 origMsgArray.forEach(function(letter) {
@@ -122,7 +118,7 @@ exports.randomEncryption = function(messageToEncode) {
                 if (Math.floor(Math.random()*2) == 1) {
                     msg = msg.split("").reverse().join("");
                 } else {
-                    console.log("debug: usind shift-5 key");
+                    //console.log("debug: usind shift-5 key");
                     msg = monoalphabeticCipher1.encipher(msg);
                 }
 
@@ -144,4 +140,27 @@ exports.randomEncryption = function(messageToEncode) {
             break;
     }
     return encodedMessage;
+}
+
+exports.binaryEncryption = function(binaryNumber) {
+    let numArr = binaryNumber.split("");
+    // console.log(numArr);
+    numArr.push(numArr.shift());
+    // console.log(numArr);
+ 
+    let newArr = [];
+    numArr.forEach(function(n) {
+        switch(n){
+            case '0':
+                newArr.push('1');
+                break;
+            case '1':
+                newArr.push('0');
+                break;
+        }
+    }, this);
+    // console.log(newArr);
+    newArr.reverse();
+    // console.log(newArr);
+    return chalk.blue(newArr.join(""));
 }
