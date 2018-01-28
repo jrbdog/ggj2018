@@ -5,6 +5,8 @@
         <script>
             function SaveUserInfo(){
                 var name = document.getElementById("nameInput").value;
+                console.log(name);
+                sessionStorage.setItem("userName", name);
                 window.location.href = "game.html";
             }
         </script>
