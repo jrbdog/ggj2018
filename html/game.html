@@ -3,7 +3,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="style.css" />
         <script src="scripts/functions.js"></script>
-        <script> window.onload = StartTypeText("Microsoft Windows [Version 10.0.16299.192]\n(c) 2017 Microsoft Corporation. All rights reserved.\nC:\\Users\\██████>", "mainbody")</script>
+        <script> window.onload = StartTypeText("Microsoft Windows [Version 10.0.16299.192]\n(c) 2017 Microsoft Corporation. All rights reserved.\nC:\\Users\\██████> connect\nLogging in...", "intro")</script>
         
     </head>
     <body >
@@ -11,9 +11,23 @@
             <img src="images/titlebar-left.png" />
             <input id="closeButton" type="image" onmouseout="src='images/titlebar-right.png'"  onmouseover="src='images/titlebar-right_hover.png'" onclick="window.close();" ></input></div>
         <div id="mainbody">
-            <p>Microsoft Windows [Version 10.0.16299.192]</p>
-            <p>(c) 2017 Microsoft Corporation. All rights reserved.</p>
-            <p>C:\Users\██████></p>
+            <div id="intro">
+                <p>Microsoft Windows [Version 10.0.16299.192]</p>
+                <p>(c) 2017 Microsoft Corporation. All rights reserved.</p>
+                <p>C:\Users\██████></p>
+            </div>
+            <div id="transmissionText">
+                
+            </div>
+            <div id="transmissionInput">
+                <label for="userAnswerField">Enter Answer:</label>
+                <input type="text" id="userAnswerField" onchange="checkAnswer"></input>
+            </div>
+            <div id="transmissionStatus">
+                
+            </div>
         </div>
+        <script>var checkAnswer;</script>
+        <script src="game.js"></script>
     </body>
 </html>

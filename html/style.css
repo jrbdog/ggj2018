@@ -1,5 +1,6 @@
 html, body{
     background-color: black;
+    color: #c0c0c0;
     height:100%;
 }
 
@@ -31,6 +32,16 @@ input::-webkit-input-placeholder{
 input::-moz-placeholder{
     color: red;
 }
+
+#userAnswerField {
+    background: none;
+    color: #ffffff;
+}
+
+#transmissionInput {
+    display: none;
+}
+
 div#mainbody{
     border: 1px solid #7fbcf8;
     padding: 10px;
@@ -70,4 +81,8 @@ p.green{
 }
 p.oldGreen{
     color: #008000;
+}
+
+p.cyan{
+    color: #00FFFF
 }

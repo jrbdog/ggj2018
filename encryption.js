@@ -95,7 +95,7 @@ exports.randomEncryption = function(messageToEncode) {
                 msg = newNumArray.join(" ");
             }
 
-            encodedMessage = chalk.red(msg);
+            encodedMessage = "<p class='red'>" + msg + "</p>";
             break;
 
         case 2:
@@ -124,11 +124,11 @@ exports.randomEncryption = function(messageToEncode) {
 
             }
             
-            encodedMessage = chalk.green(msg);
+            encodedMessage = "<p class='green'>" + msg + "</p>";
             break;
     
         case 3:
-            encodedMessage = chalk.blue(morse.encode(messageToEncode));
+            encodedMessage = "<p class='blue'>" + morse.encode(messageToEncode) + "</p>";
             break;
 
         case 4:

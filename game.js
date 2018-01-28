@@ -1,19 +1,12 @@
+// console.log(window.document);
+
 const chalk = require('chalk');
-// const clui = require('clui');
-const readlineSync = require('readline-sync');
-const fs = require("fs");
-
 const encryption = require('./encryption')
-
 const utility = require('./utility')
 
-// load puzzles
-//var puzzleFile = fs.readFileSync("puzzles.json");
-//var puzzles = JSON.parse(puzzleFile);
+import { words } from './words';
 
-// load words
-var words = fs.readFileSync('words_alpha.txt').toString().split("\n");
-console.log("Loaded "+ words.length + " words");
+var encodedMsg = '';
 
 if ((Math.random() * 100) > 25) {
     var randomWord = words[utility.getRandomInt(0, words.length)];
@@ -24,21 +17,41 @@ if ((Math.random() * 100) > 25) {
     encodedMsg = encryption.binaryEncryption(randomWord);
 }
 
-
 //encodedMsg = morse.encode(randomWord);
+
+setTimeout(function(){ window.document.getElementById('transmissionText').innerHTML = "<p class='cyan'>===INCOMING TRANSMISSION===</p>"+encodedMsg; }, 16000);
+setTimeout(function(){ window.document.getElementById('transmissionInput').style.display = "block" }, 17000);
 
 console.log(chalk.cyan("===INCOMING TRANSMISSION==="));
 console.log(encodedMsg);
 
-var isAnswered = false;
+var inputField = window.document.getElementById('userAnswerField');
+console.log(inputField);
 
-while (!isAnswered) {
-    var userAnswer = readlineSync.question('Enter your answer: ');
+
+window.testFunc = function() {
+    alert("test passed");
+}
+
+var checkAnswer = function() {
+    console.log("checking answer");
+    var userAnswer = window.document.getElementById('userAnswerField').value
     if (userAnswer == randomWord) {
-        console.log(chalk.green("CORRECT"));
+        window.document.getElementById('transmissionStatus').innerHTML = "<p class='green'>CORRECT</p>"
         isAnswered = true;
     }
     else {
-        console.log(chalk.red("INCORRECT"));
+        window.document.getElementById('transmissionStatus').innerHTML = "<p class='red'>INCORRECT</p>"
+        setTimeout(function(){ window.document.getElementById('transmissionStatus').innerHTML = "" }, 2000);
     }
 }
+
+function addEvent(el, type, handler) {
+    if (el.attachEvent) el.attachEvent('on'+type, handler); else el.addEventListener(type, handler);
+}
+
+window.checkAnswer = checkAnswer;
+addEvent(inputField, 'change', window.checkAnswer);
+// function removeEvent(el, type, handler) {
+//     if (el.detachEvent) el.detachEvent('on'+type, handler); else el.removeEventListener(type, handler);
+// }
