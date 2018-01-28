@@ -46,11 +46,16 @@ var getTransmission = function() {
 
 var checkAnswer = function() {
     console.log("checking answer");
-    var userAnswer = window.document.getElementById('userAnswerField').value
+    var userAnswer = window.document.getElementById('userAnswerField').value;
     if (userAnswer == randomWord) {
         window.document.getElementById('transmissionStatus').innerHTML = "<p class='green'>CORRECT</p><br /><p><a class='nextTransmissionButton' onclick='getTransmission()'>Receive next transmission</a></p>"
         solvedTransmissions = solvedTransmissions + 1;
-        window.document.getElementById('storyContent').innerHTML = story[solvedTransmissions];
+        if(story[solvedTransmissions] != undefined) {
+            window.document.getElementById('storyContent').innerHTML = story[solvedTransmissions];
+        } else {
+            window.document.getElementById('storyContent').innerHTML = "";
+        }
+        
     }
     else {
         window.document.getElementById('transmissionStatus').innerHTML = "<p class='red'>INCORRECT</p>"
