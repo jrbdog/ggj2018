@@ -54,6 +54,11 @@ input::-moz-placeholder{
     cursor: pointer;
 }
 
+#storyContent {
+    margin-top: 20px;
+    font-family: Consolas, sans-serif;
+}
+
 div#mainbody{
     border: 1px solid #7fbcf8;
     padding: 10px;
