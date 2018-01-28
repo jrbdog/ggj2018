@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script>
+            function SaveUserInfo(){
+                var name = document.getElementById("nameInput").value;
+                console.log(name);
+                sessionStorage.setItem("userName", name);
+                window.location.href = "game.html";
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Welcome.</h1>
+        <h1>Please Log In.</h1>
+        <div id="enterbox">
+            <input type="text" id="nameInput" placeholder="Name" />
+            <input type="text" placeholder="Password" />
+            <input style=" width: 30%; float: right" type="button" value="Enter" onClick="SaveUserInfo()"/>
+        </div>
+    </body>
+</html>
