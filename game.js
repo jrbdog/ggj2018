@@ -13,14 +13,21 @@ var randomWord = '';
 var encodedMsg = '';
 
 var getTransmission = function() {
-    console.log("recieving transmission...");
+    console.log("receiving transmission...");
+    
+    // clear out the previous transmission
+    window.document.getElementById('transmissionText').innerHTML = "";
+    window.document.getElementById('transmissionStatus').innerHTML = "";
+    window.document.getElementById('transmissionInput').style.display = "none";
+    window.document.getElementById('userAnswerField').value = "";
+
     // randomly decide between word or binary challenge
     if ((Math.random() * 100) > 25) {
-        var randomWord = words[utility.getRandomInt(0, words.length)];
+        randomWord = words[utility.getRandomInt(0, words.length)];
         // console.log("debug: word is [" + randomWord + "]");
         encodedMsg = encryption.randomEncryption(randomWord);
     } else {
-        var randomWord = utility.getRandomInt(5, 31).toString(2);
+        randomWord = utility.getRandomInt(5, 31).toString(2);
         encodedMsg = encryption.binaryEncryption(randomWord);
     }
 
@@ -29,6 +36,7 @@ var getTransmission = function() {
 
     console.log("===INCOMING TRANSMISSION===");
     console.log(encodedMsg);
+    console.log(randomWord);
     
     // var inputField = window.document.getElementById('userAnswerField');
     // console.log(inputField);
@@ -38,8 +46,8 @@ var checkAnswer = function() {
     console.log("checking answer");
     var userAnswer = window.document.getElementById('userAnswerField').value
     if (userAnswer == randomWord) {
-        window.document.getElementById('transmissionStatus').innerHTML = "<p class='green'>CORRECT</p>"
-        isAnswered = true;
+        window.document.getElementById('transmissionStatus').innerHTML = "<p class='green'>CORRECT</p><br /><p><a class='nextTransmissionButton' onclick='getTransmission()'>Receive next transmission</a></p>"
+        // isAnswered = true;
     }
     else {
         window.document.getElementById('transmissionStatus').innerHTML = "<p class='red'>INCORRECT</p>"

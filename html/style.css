@@ -43,6 +43,14 @@ input::-moz-placeholder{
     font-family: Consolas, sans-serif;
 }
 
+.nextTransmissionButton {
+    border: 1px solid blue;
+    font-family: Consolas, sans-serif;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
 div#mainbody{
     border: 1px solid #7fbcf8;
     padding: 10px;
