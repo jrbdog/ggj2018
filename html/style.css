@@ -35,12 +35,23 @@ input::-moz-placeholder{
 
 #userAnswerField {
     background: none;
+    border: 1px solid blue;
     color: #ffffff;
+    font-family: Consolas, sans-serif;
 }
 
 #transmissionInput {
+    margin-top: 10px;
     display: none;
     font-family: Consolas, sans-serif;
+}
+
+.nextTransmissionButton {
+    border: 1px solid blue;
+    font-family: Consolas, sans-serif;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
 }
 
 div#mainbody{

@@ -1,6 +1,6 @@
 // console.log(window.document);
 
-const chalk = require('chalk');
+// const chalk = require('chalk');
 const encryption = require('./encryption')
 const utility = require('./utility')
 
@@ -8,37 +8,46 @@ import { words } from './words';
 
 var encodedMsg = '';
 
-if ((Math.random() * 100) > 25) {
-    var randomWord = words[utility.getRandomInt(0, words.length)];
-    // console.log("debug: word is [" + randomWord + "]");
-    encodedMsg = encryption.randomEncryption(randomWord);
-} else {
-    var randomWord = utility.getRandomInt(5, 31).toString(2);
-    encodedMsg = encryption.binaryEncryption(randomWord);
-}
+console.log("init");
+var randomWord = '';
+var encodedMsg = '';
 
-//encodedMsg = morse.encode(randomWord);
+var getTransmission = function() {
+    console.log("receiving transmission...");
+    
+    // clear out the previous transmission
+    window.document.getElementById('transmissionText').innerHTML = "";
+    window.document.getElementById('transmissionStatus').innerHTML = "";
+    window.document.getElementById('transmissionInput').style.display = "none";
+    window.document.getElementById('userAnswerField').value = "";
 
-setTimeout(function(){ window.document.getElementById('transmissionText').innerHTML = "<p class='cyan'>===INCOMING TRANSMISSION===</p>"+encodedMsg; }, 16000);
-setTimeout(function(){ window.document.getElementById('transmissionInput').style.display = "block" }, 17000);
+    // randomly decide between word or binary challenge
+    if ((Math.random() * 100) > 25) {
+        randomWord = words[utility.getRandomInt(0, words.length)];
+        // console.log("debug: word is [" + randomWord + "]");
+        encodedMsg = encryption.randomEncryption(randomWord);
+    } else {
+        randomWord = utility.getRandomInt(5, 31).toString(2);
+        encodedMsg = encryption.binaryEncryption(randomWord);
+    }
 
-console.log(chalk.cyan("===INCOMING TRANSMISSION==="));
-console.log(encodedMsg);
+    setTimeout(function(){ window.document.getElementById('transmissionText').innerHTML = "<p class='cyan'>===INCOMING TRANSMISSION===</p>"+encodedMsg; }, 1000);
+    setTimeout(function(){ window.document.getElementById('transmissionInput').style.display = "block" }, 1500);
 
-var inputField = window.document.getElementById('userAnswerField');
-console.log(inputField);
-
-
-window.testFunc = function() {
-    alert("test passed");
+    console.log("===INCOMING TRANSMISSION===");
+    console.log(encodedMsg);
+    console.log(randomWord);
+    
+    // var inputField = window.document.getElementById('userAnswerField');
+    // console.log(inputField);
 }
 
 var checkAnswer = function() {
     console.log("checking answer");
     var userAnswer = window.document.getElementById('userAnswerField').value
     if (userAnswer == randomWord) {
-        window.document.getElementById('transmissionStatus').innerHTML = "<p class='green'>CORRECT</p>"
-        isAnswered = true;
+        window.document.getElementById('transmissionStatus').innerHTML = "<p class='green'>CORRECT</p><br /><p><a class='nextTransmissionButton' onclick='getTransmission()'>Receive next transmission</a></p>"
+        // isAnswered = true;
     }
     else {
         window.document.getElementById('transmissionStatus').innerHTML = "<p class='red'>INCORRECT</p>"
@@ -51,7 +60,13 @@ function addEvent(el, type, handler) {
 }
 
 window.checkAnswer = checkAnswer;
+window.getTransmission = getTransmission;
+var inputField = window.document.getElementById('userAnswerField');
 addEvent(inputField, 'change', window.checkAnswer);
+
+// window.setTimeout(console.log("TEST"), 16000);
+window.setTimeout(getTransmission, 16000);
+
 // function removeEvent(el, type, handler) {
 //     if (el.detachEvent) el.detachEvent('on'+type, handler); else el.removeEventListener(type, handler);
 // }
