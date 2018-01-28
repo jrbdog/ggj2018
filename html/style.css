@@ -2,6 +2,35 @@ html, body{
     background-color: black;
     height:100%;
 }
+
+iframe{
+    height: 90%;
+    width: 100%;
+}
+#enterbox{
+    background-color: none;
+    padding: 5%;
+    //margin: 5% 10% 10% 10%;
+}
+#enterbox input{
+    background: none;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color:  #c0c0c0;
+    font-size: 60pt;
+}
+
+#closeButton{
+    float: right;
+}
+
+input::-webkit-input-placeholder{
+    color: red;
+}
+input::-moz-placeholder{
+    color: red;
+}
 div#mainbody{
     border: 1px solid #7fbcf8;
     padding: 10px;
@@ -20,6 +49,7 @@ div#mainbody{
 h1{
     color: darkgray;
     text-align: center;
+    font-family: Consolas, sans-serif;
 }
 p{
     color: #c0c0c0;

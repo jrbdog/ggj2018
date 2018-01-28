@@ -2,16 +2,20 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="style.css" />
-        <link rel="script" type="type/javascript" href="scripts/game.js" />
+        <script>
+            function SaveUserInfo(){
+                var name = document.getElementById("nameInput").value;
+                window.location.href = "game.html";
+            }
+        </script>
     </head>
     <body>
-        <div id="titlebar">
-            <img src="images/titlebar-left.png" />
-            <img style="float: right" src="images/titlebar-right.png" /></div>
-        <div id="mainbody">
-            <p>Microsoft Windows [Version 10.0.16299.192]</p>
-            <p>(c) 2017 Microsoft Corporation. All rights reserved.</p>
-            <p>C:\Users\██████></p>
+        <h1>Welcome.</h1>
+        <h1>Please Log In.</h1>
+        <div id="enterbox">
+            <input type="text" id="nameInput" placeholder="Name" />
+            <input type="text" placeholder="Password" />
+            <input style=" width: 30%; float: right" type="button" value="Enter" onClick="SaveUserInfo()"/>
         </div>
     </body>
 </html>
