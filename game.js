@@ -67,7 +67,7 @@ var checkAnswer = function() {
         window.document.getElementById('transmissionStatus').innerHTML = "<p class='red'>INCORRECT</p>"
         setTimeout(function(){ window.document.getElementById('transmissionStatus').innerHTML = "" }, 2000);
     }
-    if(solvedTransmissions == 9){
+    if(solvedTransmissions == 7){
         window.setTimeout(window.document.getElementById("mainbody").innerHTML = `
 <div><input type="button" id="restartBtn" value="Game Over.\n Click to Restart" onClick="window.location.reload();"></input></div>`, 2000);
     }
