@@ -20,3 +20,58 @@ export const story = [
     `,
     `story step <b>2</b> here`
 ]
+
+export const preStory = [
+    `Ip found<br>
+    Connecting to server<br>
+    Attempting bypass<br>
+    Firewall Detected<br>
+    Cracking firewall<br>
+    Connected to server<br>
+    Please enter password<br>
+    `,
+    `Querying addresses<br>
+    Target found.<br>
+    Connecting.<br>
+    <br>
+    Welcome, Scott Paceley.<br>
+    Please enter your password.<br>
+    `,
+    `Parsing emails<br>
+    64 found<br>
+    2 unread.<br>
+    Opening most recent.<br>
+    \<encrypted key\><br>
+    Please enter key<br>
+    `,
+    `New msg<br>
+    Opening msg<br>
+    > Thank you for your help. We can take it from here. - Scott<br>
+    Connecting.<br>
+    ACCESS DENIED<br>
+    Firewall detected<br>
+    Breaking firewall<br>
+    Antivirus detected<br>
+    Rerouting connection<br>
+    Connecting…<br>
+    ACCESS DENIED<br>
+    Starting zero-day.exe<br>
+    Connecting.<br>
+    Connected.<br>
+    Enter password<br>
+    `,
+    `Extra auth required<br>
+    Bypassing auth<br>
+    Bypass fail.<br>
+    Please enter key<br>
+    `,
+    `Antivirus active<br>
+    Firewall active<br>
+    VitaSecurity active<br>
+    Deactivating Firewall<br>
+    Deactivating Antivirus<br>
+    Deactivating VitaSecurity<br>
+    VitaSecurity deactivation failed<br>
+    Enter password to Deactivate<br>
+    `
+];

@@ -5,7 +5,7 @@ const encryption = require('./encryption')
 const utility = require('./utility')
 
 import { words } from './words';
-import { story } from './story';
+import { story, preStory } from './story';
 
 var encodedMsg = '';
 
@@ -35,6 +35,12 @@ var getTransmission = function() {
 
     setTimeout(function(){ window.document.getElementById('transmissionText').innerHTML = "<p class='cyan'>===INCOMING TRANSMISSION===</p>"+encodedMsg; }, 1000);
     setTimeout(function(){ window.document.getElementById('transmissionInput').style.display = "block" }, 1500);
+
+    if(preStory[solvedTransmissions] != undefined) {
+        window.document.getElementById('storyContent').innerHTML = preStory[solvedTransmissions];
+    } else {
+        window.document.getElementById('storyContent').innerHTML = "";
+    }
 
     console.log("===INCOMING TRANSMISSION===");
     console.log(encodedMsg);
