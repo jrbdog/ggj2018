@@ -5,12 +5,14 @@ const encryption = require('./encryption')
 const utility = require('./utility')
 
 import { words } from './words';
+import { story } from './story';
 
 var encodedMsg = '';
 
 console.log("init");
 var randomWord = '';
 var encodedMsg = '';
+var solvedTransmissions = 0;
 
 var getTransmission = function() {
     console.log("receiving transmission...");
@@ -47,7 +49,8 @@ var checkAnswer = function() {
     var userAnswer = window.document.getElementById('userAnswerField').value
     if (userAnswer == randomWord) {
         window.document.getElementById('transmissionStatus').innerHTML = "<p class='green'>CORRECT</p><br /><p><a class='nextTransmissionButton' onclick='getTransmission()'>Receive next transmission</a></p>"
-        // isAnswered = true;
+        solvedTransmissions = solvedTransmissions + 1;
+        window.document.getElementById('storyContent').innerHTML = story[solvedTransmissions];
     }
     else {
         window.document.getElementById('transmissionStatus').innerHTML = "<p class='red'>INCORRECT</p>"
