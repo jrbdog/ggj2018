@@ -37,9 +37,9 @@ var getTransmission = function() {
     setTimeout(function(){ window.document.getElementById('transmissionInput').style.display = "block" }, 1500);
 
     if(preStory[solvedTransmissions] != undefined) {
-        window.document.getElementById('storyContent').innerHTML = preStory[solvedTransmissions];
+        window.document.getElementById('preStoryContent').innerHTML = preStory[solvedTransmissions];
     } else {
-        window.document.getElementById('storyContent').innerHTML = "";
+        window.document.getElementById('preStoryContent').innerHTML = "";
     }
 
     console.log("===INCOMING TRANSMISSION===");

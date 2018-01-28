@@ -54,7 +54,7 @@ input::-moz-placeholder{
     cursor: pointer;
 }
 
-#storyContent {
+#storyContent, #preStoryContent {
     margin-top: 20px;
     font-family: Consolas, sans-serif;
 }
